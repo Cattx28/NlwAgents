@@ -138,6 +138,10 @@ button:disabled{
     animation: pulse 1s infinite;
 }
 
+.hidden{
+    display: none;
+}
+
 @keyframes pulse {
     50%{
         opacity: 0.5;

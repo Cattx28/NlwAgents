@@ -11,7 +11,6 @@ const markdownToHTML = (text) => {
     return converter.makeHtml(text);
 }
 
-//AIzaSyDJXjlwk-SYOwlkvj-cUZ2FcyzTpB7Qp0o
 const perguntarIa = async (question, game, apiKey) => {
     const model = 'gemini-2.5-flash';
     const geminiURL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
@@ -86,6 +85,7 @@ const enviarForm = async (event) => {
     try{
         const text = await perguntarIa (question, game, apiKey);
         aiResponse.querySelector('.response-content').innerHTML = markdownToHTML(text);
+        aiResponse.classList.remove('hidden');
     }catch(error){
         console.log('Erro: ', error)
     }finally{
